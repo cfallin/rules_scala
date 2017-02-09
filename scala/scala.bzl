@@ -556,6 +556,7 @@ scala_binary = rule(
   implementation=_scala_binary_impl,
   attrs={
       "main_class": attr.string(mandatory=True),
+      "premain_class": attr.string(mandatory=False),
       } + _implicit_deps + _common_attrs,
   outputs={
       "jar": "%{name}.jar",
