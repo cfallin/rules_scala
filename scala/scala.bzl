@@ -272,6 +272,8 @@ def write_manifest(ctx):
     manifest = "Class-Path: %s\n" % ctx.file._scalalib.path
     if getattr(ctx.attr, "main_class", ""):
         manifest += "Main-Class: %s\n" % ctx.attr.main_class
+    if getattr(ctx.attr, "premain_class", ""):
+        manifest += "Premain-Class: %s\n" % ctx.attr.premain_class
 
     ctx.file_action(
         output=ctx.outputs.manifest,
